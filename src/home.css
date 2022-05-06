@@ -1,0 +1,15 @@
+.book-wrapper {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 30px;
+  padding: 20px;
+}
+
+.book-lists {
+  border: 1px solid #9f9fa3;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+}

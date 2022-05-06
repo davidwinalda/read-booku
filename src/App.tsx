@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+import Home from './Home';
+import Books from './Books'
+import Details from './Details'
+import Bookmarks from './Bookmarks'
+import './App.css';
+import { Footer } from './components';
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-layout">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="books" element={<Books />} />
+        <Route path="details" element={<Details />} />
+        <Route path="bookmarks" element={<Bookmarks />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }

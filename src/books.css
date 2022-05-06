@@ -1,0 +1,65 @@
+.listBooks {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.listBooks li {
+  width: 50%;
+}
+
+.search-container {
+  text-align: center;
+}
+
+.search-input {
+  width: 80%;
+  padding: 10px;
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.pagination-wrapper span {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.current-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 50%;
+  border-color: #52565e;
+  background: blue;
+  color: white;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.not-current-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 50%;
+  border-color: #52565e;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
