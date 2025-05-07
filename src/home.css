@@ -134,6 +134,14 @@
 .recently-viewed .listBooks li {
   border: 1px solid #e1e8ed;
   transition: all 0.3s ease;
+  text-align: left;
+}
+
+/* Target the anchor tag rendered by Link to remove underline */
+.recently-viewed .listBooks li a,
+.recently-viewed .listBooks li a:hover,
+.recently-viewed .listBooks li a:visited {
+  text-decoration: none !important;
 }
 
 .recently-viewed .listBooks li:hover {
@@ -151,6 +159,23 @@
   font-size: 17px;
   margin-bottom: 8px;
   color: var(--primary-color);
+  text-align: left !important;
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  position: relative;
+}
+
+/* Attempt to hide any pseudo-elements that might be creating the line */
+.recently-viewed .book-title::before,
+.recently-viewed .book-title::after {
+  content: "" !important;
+  display: none !important;
+  border: none !important;
+  background: none !important;
+  height: 0 !important;
+  width: 0 !important;
 }
 
 .recently-viewed .book-author {
