@@ -1,35 +1,172 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+
+/* Base styling */
+:root {
+  --primary-color: #4a69bd;
+  --secondary-color: #1e3799;
+  --accent-color: #eb2f06;
+  --text-color: #2c3e50;
+  --text-light: #7f8c8d;
+  --bg-color: #f0f2f5;
+  --card-bg: #ffffff;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
 
 body {
-  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .main-layout {
-  box-shadow: 0 0 48px 0 rgb(0 0 0 / 20%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   min-height: 100vh;
   max-width: 500px;
   margin: 0 auto;
   position: relative;
-  padding-top: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+}
+
+.container {
+  padding: 15px;
+  padding-top: calc(56px + 15px);
+  padding-bottom: calc(56px + 15px);
+  flex-grow: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.container.details-page {
+  padding-top: 15px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
 .main-layout h2 {
   text-align: center;
+  font-size: 18px;
 }
 
-.container {
-  padding: 20px;
-  position:absolute;
-  top:0px;
-  bottom:50px;
-  left:0px;
-  right:0px;
-  overflow:auto;
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* App header */
+.app-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  border-bottom: 1px solid #e1e8ed;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  box-sizing: border-box;
+  z-index: 1000;
+  height: 56px;
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 56px;
+  background: #ffffff;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  height: 100%;
+  color: var(--text-light);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.footer-item:hover {
+  background-color: rgba(74, 105, 189, 0.05);
+  color: var(--primary-color);
+}
+
+.footer-item.active {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.footer-item svg {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.footer-item span {
+  font-size: 11px;
+}
+
+/* Remove app-nav styles as it's not used */
+.app-nav {
+  display: none;
 }

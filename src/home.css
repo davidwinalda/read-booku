@@ -1,15 +1,215 @@
+.home-container {
+  text-align: center;
+  padding: 15px;
+  padding-top: calc(
+    56px + 20px
+  ); /* Header height (56px) + desired top space (20px) */
+  padding-bottom: calc(
+    56px + 20px
+  ); /* Footer height (56px) + desired bottom space (20px) */
+  margin-bottom: 0; /* Remove bottom margin as padding handles it */
+  box-sizing: border-box; /* Ensure padding is included correctly */
+  height: 100%; /* Ensure it can fill available space if flex-grow is on parent */
+  overflow-y: auto; /* Allow scrolling if content exceeds viewport */
+}
+
+.home-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 0; /* Padding on container will handle spacing */
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.home-subtitle {
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  text-align: center;
+  line-height: 1.5;
+}
+
 .book-wrapper {
   list-style-type: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 30px;
-  padding: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.categories-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+}
+
+.categories-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .book-lists {
-  border: 1px solid #9f9fa3;
-  border-radius: 5px;
-  padding: 5px;
-  margin-bottom: 5px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid #e1e8ed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+  text-align: center;
+}
+
+.book-lists:hover {
+  background-color: rgba(74, 105, 189, 0.05);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.category-icon {
+  margin-bottom: 8px;
+  font-size: 22px;
+  color: var(--primary-color);
+}
+
+/* Recently viewed section */
+.recently-viewed {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #e1e8ed;
+}
+
+.recently-viewed h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.recently-viewed h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+}
+
+.recently-viewed .listBooks {
+  margin-top: 25px;
+  box-shadow: none;
+}
+
+.recently-viewed .listBooks li {
+  border: 1px solid #e1e8ed;
+  transition: all 0.3s ease;
+}
+
+.recently-viewed .listBooks li:hover {
+  border-color: var(--primary-color);
+}
+
+.recently-viewed .category-badge {
+  font-size: 11px;
+  padding: 3px 6px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.recently-viewed .book-title {
+  font-size: 17px;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+}
+
+.recently-viewed .book-author {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.recently-viewed .book-description {
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-line-clamp: 3;
+}
+
+.no-recent {
+  text-align: center;
+  color: var(--text-light);
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Update listBooks for mobile view (shared with Books.js) */
+.listBooks {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.listBooks li {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--card-bg);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.listBooks li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 32px;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .categories-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
